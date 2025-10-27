@@ -1,0 +1,43 @@
+﻿<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <title>Puissance 4 Web</title>
+  <link rel="stylesheet" href="/style/style.css">
+</head>
+<body>
+  {{if .Winner}}
+    <p>Vainqueur : Joueur {{.Winner}}</p>
+  {{else if .Draw}}
+    <p>Match nul</p>
+  {{else}}
+    <p>Tour du Joueur {{.Current}}</p>
+  {{end}}
+
+  <form method="post" action="/play" class="bar">
+    <button type="submit" name="col" value="0">0</button>
+    <button type="submit" name="col" value="1">1</button>
+    <button type="submit" name="col" value="2">2</button>
+    <button type="submit" name="col" value="3">3</button>
+    <button type="submit" name="col" value="4">4</button>
+    <button type="submit" name="col" value="5">5</button>
+    <button type="submit" name="col" value="6">6</button>
+  </form>
+
+  <table>
+    <tbody>
+    {{range $r, $row := .Board}}
+      <tr>
+        {{range $c, $cell := $row}}
+          {{if eq $cell 1}}<td class="p1"></td>
+          {{else if eq $cell 2}}<td class="p2"></td>
+          {{else}}<td class="vide"></td>{{end}}
+        {{end}}
+      </tr>
+    {{end}}
+    </tbody>
+  </table>
+
+  <p><a href="/reset">Rejouer</a></p>
+</body>
+</html>

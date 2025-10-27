@@ -1,0 +1,7 @@
+﻿body { font-family: Arial, sans-serif; text-align: center; margin-top: 20px; }
+table { border-collapse: collapse; margin: 10px auto; }
+td { width: 50px; height: 50px; border: 1px solid #333; }
+.p1 { background: red; }
+.p2 { background: yellow; }
+.vide { background: white; }
+button { width: 50px; height: 30px; margin: 2px; cursor: pointer; }
